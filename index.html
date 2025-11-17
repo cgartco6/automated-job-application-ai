@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerAI Pro - Transform Your Job Search with AI</title>
+    <meta name="description" content="Advanced AI-powered job application system with interview coaching, resume optimization, and career growth tools.">
+    
+    <!-- SEO Optimization -->
+    <meta name="keywords" content="AI job search, interview coaching, resume builder, career growth, South Africa jobs">
+    <meta name="author" content="CareerAI Pro">
+    <meta property="og:title" content="CareerAI Pro - AI-Powered Job Search Platform">
+    <meta property="og:description" content="Transform your job search with our advanced AI technology. Get personalized coaching, resume optimization, and career guidance.">
+    <meta property="og:image" content="/static/images/og-image.jpg">
+    <meta property="og:url" content="https://careeraipro.co.za">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/static/css/main.css" as="style">
+    <link rel="preload" href="/static/js/main.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/animations.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "CareerAI Pro",
+        "description": "AI-powered job search and career development platform",
+        "brand": {
+            "@type": "Brand",
+            "name": "CareerAI"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "299",
+            "priceCurrency": "ZAR"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Preparing your career transformation...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/" class="logo-link">
+                    <img src="/static/images/logo.svg" alt="CareerAI Pro" class="logo">
+                    <span class="logo-text">CareerAI <strong>Pro</strong></span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#testimonials" class="nav-link">Success Stories</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="/dashboard" class="nav-link nav-cta">Get Started</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-particles" id="hero-particles"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">🚀 Trusted by 10,000+ Job Seekers</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Land Your <span class="gradient-text">Dream Job</span> 
+                    with AI-Powered Precision
+                </h1>
+                
+                <p class="hero-description">
+                    Our advanced AI technology analyzes, optimizes, and accelerates your job search. 
+                    Get personalized interview coaching, resume optimization, and strategic career guidance.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-jobs">10,000+</div>
+                        <div class="stat-label">Jobs Secured</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-interviews">50,000+</div>
+                        <div class="stat-label">Interviews Aced</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-success">94%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large" id="cta-main">
+                        <span>Start Free Trial</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-secondary btn-large" id="watch-demo">
+                        <i class="fas fa-play"></i>
+                        <span>Watch Demo</span>
+                    </button>
+                </div>
+                
+                <div class="hero-trust">
+                    <p class="trust-text">Trusted by professionals at</p>
+                    <div class="trust-logos">
+                        <img src="/static/logos/google.svg" alt="Google" loading="lazy">
+                        <img src="/static/logos/microsoft.svg" alt="Microsoft" loading="lazy">
+                        <img src="/static/logos/amazon.svg" alt="Amazon" loading="lazy">
+                        <img src="/static/logos/absa.svg" alt="Absa" loading="lazy">
+                        <img src="/static/logos/fnb.svg" alt="FNB" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="visual-container">
+                    <div class="ai-dashboard-preview">
+                        <div class="dashboard-header">
+                            <div class="dashboard-stats">
+                                <div class="dashboard-stat">
+                                    <div class="stat-value">87%</div>
+                                    <div class="stat-label">Match Score</div>
+                                </div>
+                                <div class="dashboard-stat">
+                                    <div class="stat-value">24</div>
+                                    <div class="stat-label">Applications</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-content">
+                            <div class="ai-recommendation">
+                                <div class="recommendation-badge">AI Recommended</div>
+                                <h4>Senior Developer at TechCompany</h4>
+                                <p>95% skills match • R85,000-R95,000</p>
+                                <button class="btn-apply">Auto-Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-elements">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Resume Optimized</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-rocket"></i>
+                            <span>5 Interviews Scheduled</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Skills Analysis Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features for Career Success</h2>
+                <p class="section-description">
+                    Everything you need to transform your job search, powered by advanced AI technology
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="feature-title">AI Resume Optimizer</h3>
+                    <p class="feature-description">
+                        Get your resume optimized for ATS systems and human recruiters with our advanced AI analysis.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> ATS compatibility scoring</li>
+                        <li><i class="fas fa-check"></i> Keyword optimization</li>
+                        <li><i class="fas fa-check"></i> Achievement quantification</li>
+                        <li><i class="fas fa-check"></i> Industry-specific templates</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Job Matching</h3>
+                    <p class="feature-description">
+                        Our AI finds perfect job matches based on your skills, experience, and career goals.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Real-time job scraping</li>
+                        <li><i class="fas fa-check"></i> Compatibility scoring</li>
+                        <li><i class="fas fa-check"></i> Salary insights</li>
+                        <li><i class="fas fa-check"></i> Company research</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="feature-title">AI Interview Coach</h3>
+                    <p class="feature-description">
+                        Practice with our AI interview simulator and get instant feedback on your responses.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Realistic interview simulations</li>
+                        <li><i class="fas fa-check"></i> Performance analytics</li>
+                        <li><i class="fas fa-check"></i> Personalized feedback</li>
+                        <li><i class="fas fa-check"></i> Video response analysis</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Auto Application</h3>
+                    <p class="feature-description">
+                        Apply to multiple jobs automatically with customized applications for each position.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> One-click applications</li>
+                        <li><i class="fas fa-check"></i> Custom cover letters</li>
+                        <li><i class="fas fa-check"></i> Application tracking</li>
+                        <li><i class="fas fa-check"></i> Follow-up automation</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <h3 class="feature-title">Career Analytics</h3>
+                    <p class="feature-description">
+                        Track your progress with detailed analytics and insights into your job search performance.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Application success rates</li>
+                        <li><i class="fas fa-check"></i> Interview conversion tracking</li>
+                        <li><i class="fas fa-check"></i> Skill gap analysis</li>
+                        <li><i class="fas fa-check"></i> Market trend insights</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Secure & Private</h3>
+                    <p class="feature-description">
+                        Your data is protected with enterprise-grade security and privacy controls.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> End-to-end encryption</li>
+                        <li><i class="fas fa-check"></i> GDPR compliance</li>
+                        <li><i class="fas fa-check"></i> Data anonymization</li>
+                        <li><i class="fas fa-check"></i> Secure payment processing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <p class="section-description">
+                    Choose the plan that works for you. All plans include a 14-day free trial.
+                </p>
+            </div>
+            
+            <div class="pricing-toggle">
+                <span>Monthly</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="billing-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span>Annual <span class="discount-badge">Save 20%</span></span>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Starter Plan -->
+                <div class="pricing-card" data-aos="fade-up">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Starter</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">R199</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="plan-description">Perfect for individual job seekers</p>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> AI Resume Analysis</li>
+                        <li><i class="fas fa-check"></i> Basic Job Matching</li>
+                        <li><i class="fas fa-check"></i> 10 Interview Simulations</li>
+                        <li><i class="fas fa-check"></i> Email Support</li>
+                        <li><i class="fas fa-times"></i> Auto Applications</li>
+                        <li><i class="fas fa-times"></i> Advanced Analytics</li>
+                        <li><i class="fas fa-times"></i> Priority Support</li>
+                    </ul>
+                    
+                    <div class="pricing-actions">
+                        <button class="btn btn-outline btn-block" data-plan="starter">
+                            Start Free Trial
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Professional Plan -->
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Professional</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">R499</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="plan-description">Everything you need for job search success</p>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Everything in Starter</li>
+                        <li><i class="fas fa-check"></i> Unlimited Job Matching</li>
+                        <li><i class="fas fa-check"></i> Unlimited Interview Practice</li>
+                        <li><i class="fas fa-check"></i> 50 Auto Applications/Month</li>
+                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                        <li><i class="fas fa-check"></i> Cover Letter Generator</li>
+                        <li><i class="fas fa-check"></i> Priority Email Support</li>
+                    </ul>
+                    
+                    <div class="pricing-actions">
+                        <button class="btn btn-primary btn-block" data-plan="professional">
+                            Start Free Trial
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Enterprise</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">R899</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="plan-description">For serious career advancement</p>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Everything in Professional</li>
+                        <li><i class="fas fa-check"></i> Unlimited Auto Applications</li>
+                        <li><i class="fas fa-check"></i> LinkedIn Optimization</li>
+                        <li><i class="fas fa-check"></i> Personal Career Coach</li>
+                        <li><i class="fas fa-check"></i> Negotiation Support</li>
+                        <li><i class="fas fa-check"></i> 1-on-1 Strategy Sessions</li>
+                        <li><i class="fas fa-check"></i> 24/7 Phone Support</li>
+                    </ul>
+                    
+                    <div class="pricing-actions">
+                        <button class="btn btn-outline btn-block" data-plan="enterprise">
+                            Start Free Trial
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Methods -->
+            <div class="payment-methods">
+                <p class="payment-title">Secure Payment Methods</p>
+                <div class="payment-icons">
+                    <div class="payment-method" data-method="eft">
+                        <i class="fas fa-university"></i>
+                        <span>Direct EFT</span>
+                    </div>
+                    <div class="payment-method" data-method="fnb">
+                        <img src="/static/payments/fnb.svg" alt="FNB">
+                        <span>FNB Pay</span>
+                    </div>
+                    <div class="payment-method" data-method="payfast">
+                        <img src="/static/payments/payfast.svg" alt="PayFast">
+                        <span>PayFast</span>
+                    </div>
+                    <div class="payment-method" data-method="payshap">
+                        <img src="/static/payments/payshap.svg" alt="PayShap">
+                        <span>PayShap</span>
+                    </div>
+                    <div class="payment-method" data-method="credit-card">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Credit Card</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Success Stories</h2>
+                <p class="section-description">
+                    See how CareerAI Pro has transformed job searches for professionals across South Africa
+                </p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "CareerAI Pro helped me land a 45% salary increase at a top tech company. 
+                            The AI interview coach was incredibly realistic and prepared me perfectly."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/static/testimonials/sarah.jpg" alt="Sarah M." class="author-avatar">
+                        <div class="author-info">
+                            <h4 class="author-name">Sarah M.</h4>
+                            <p class="author-role">Senior Software Engineer</p>
+                            <p class="author-company">Cape Town</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "I went from 0 interviews to 5 offers in 3 weeks! The auto-application 
+                            feature saved me hours each day and the resume optimizer got me past ATS systems."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/static/testimonials/john.jpg" alt="John D." class="author-avatar">
+                        <div class="author-info">
+                            <h4 class="author-name">John D.</h4>
+                            <p class="author-role">Marketing Manager</p>
+                            <p class="author-company">Johannesburg</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The career analytics showed me exactly which skills to develop. 
+                            I focused my learning and doubled my interview success rate in one month."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/static/testimonials/priya.jpg" alt="Priya K." class="author-avatar">
+                        <div class="author-info">
+                            <h4 class="author-name">Priya K.</h4>
+                            <p class="author-role">Data Scientist</p>
+                            <p class="author-company">Durban</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">
+                    Get answers to common questions about CareerAI Pro
+                </p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-column">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item" data-aos="fade-up">
+                        <button class="faq-question">
+                            <span>How does the AI resume optimization work?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our AI analyzes your resume against thousands of successful examples and current job market trends. It provides specific recommendations for keyword optimization, achievement quantification, ATS compatibility, and formatting improvements tailored to your industry.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item" data-aos="fade-up">
+                        <button class="faq-question">
+                            <span>Is my data secure and private?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we take data security extremely seriously. All data is encrypted in transit and at rest, we comply with GDPR and POPI regulations, and we never share your personal information with third parties without your explicit consent.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item" data-aos="fade-up">
+                        <button class="faq-question">
+                            <span>What payment methods do you accept?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We accept all major South African payment methods including Direct EFT, FNB Pay, PayFast, PayShap, and credit/debit cards. All payments are processed securely through PCI-compliant payment gateways.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-column">
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item" data-aos="fade-up">
+                        <button class="faq-question">
+                            <span>Can I cancel my subscription anytime?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! You can cancel your subscription at any time from your account settings. When you cancel, you'll continue to have access until the end of your current billing period, and we'll never charge you again.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item" data-aos="fade-up">
+                        <button class="faq-question">
+                            <span>How accurate is the job matching?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our job matching algorithm achieves 92% accuracy based on user feedback. It considers your skills, experience, salary expectations, location preferences, and career goals to find the most relevant opportunities from our database of 50,000+ South African jobs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item" data-aos="fade-up">
+                        <button class="faq-question">
+                            <span>Do you offer support for international job searches?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>While we focus primarily on the South African market, our international job scraper can help you find opportunities in major global markets. We also provide guidance on visa requirements, international resume formats, and cross-cultural interview preparation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2 class="cta-title">Ready to Transform Your Career?</h2>
+                <p class="cta-description">
+                    Join thousands of successful job seekers and start your journey to career success today.
+                </p>
+                
+                <div class="cta-actions">
+                    <button class="btn btn-primary btn-large" id="cta-final">
+                        <span>Start Your Free Trial</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="cta-guarantee">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>14-day money-back guarantee • No credit card required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="/static/images/logo-white.svg" alt="CareerAI Pro">
+                        <span>CareerAI Pro</span>
+                    </div>
+                    <p class="footer-description">
+                        Transforming job searches with advanced AI technology. 
+                        Helping South African professionals achieve career success.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="/api">API</a></li>
+                        <li><a href="/integrations">Integrations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/guides">Guides</a></li>
+                        <li><a href="/webinars">Webinars</a></li>
+                        <li><a href="/community">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> hello@careeraipro.co.za</p>
+                        <p><i class="fas fa-phone"></i> +27 21 123 4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 CareerAI Pro. All rights reserved.</p>
+                </div>
+                
+                <div class="footer-legal">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/animations.js"></script>
+    <script src="/static/js/payments.js"></script>
+    <script src="/static/js/analytics.js"></script>
+    
+    <!-- Trust Indicators -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CareerAI Pro",
+        "url": "https://careeraipro.co.za",
+        "logo": "https://careeraipro.co.za/static/images/logo.svg",
+        "description": "AI-powered job search and career development platform",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cape Town",
+            "addressCountry": "ZA"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+27-21-123-4567",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+</body>
+</html>
