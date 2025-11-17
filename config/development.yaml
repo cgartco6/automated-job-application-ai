@@ -1,32 +1,155 @@
 environment: development
 debug: true
 
+# AI Model Configurations
 ai_models:
   resume_analyzer:
     model_path: "models/trained_models/resume_analyzer/"
     confidence_threshold: 0.7
+    max_input_length: 512
   job_matcher:
     model_path: "models/trained_models/job_matcher/"
     similarity_threshold: 0.8
+    embedding_dim: 768
+  interview_simulator:
+    model_path: "models/trained_models/interview_simulator/"
+    difficulty_levels: ["junior", "mid", "senior"]
+  
+  # Model Training
+  training:
+    batch_size: 32
+    learning_rate: 0.001
+    epochs: 100
+    early_stopping_patience: 10
 
+# API Configurations
 apis:
   linkedin:
     base_url: "https://api.linkedin.com/v2"
     rate_limit: 100
+    timeout: 30
   indeed:
     base_url: "https://api.indeed.com"
     rate_limit: 50
+    timeout: 30
+  glassdoor:
+    base_url: "https://api.glassdoor.com"
+    rate_limit: 100
+    timeout: 30
+  
+  # External AI Services
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-4"
+    max_tokens: 2000
+  huggingface:
+    api_key: "${HUGGINGFACE_API_KEY}"
+    models:
+      - "bert-base-uncased"
+      - "sentence-transformers/all-MiniLM-L6-v2"
 
+# Database Configuration
 database:
-  host: "localhost"
-  port: 5432
-  name: "job_application_dev"
-  user: "dev_user"
+  postgres:
+    host: "localhost"
+    port: 5432
+    name: "job_application_dev"
+    user: "dev_user"
+    password: "${DB_PASSWORD}"
+    pool_size: 20
+    max_overflow: 30
+  
+  redis:
+    host: "localhost"
+    port: 6379
+    db: 0
+    password: "${REDIS_PASSWORD}"
 
+# Security Configuration
 security:
-  encryption_key: "dev_encryption_key_123"
+  encryption_key: "${ENCRYPTION_KEY}"
+  jwt_secret: "${JWT_SECRET}"
   ssl_required: false
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://127.0.0.1:3000"
+  
+  # Rate Limiting
+  rate_limits:
+    general: "1000/hour"
+    job_search: "100/hour"
+    application_submission: "50/hour"
+  
+  # Data Privacy
+  data_retention:
+    user_data: "30 days"
+    application_data: "1 year"
+    analytics_data: "6 months"
 
+# Logging Configuration
 logging:
   level: "DEBUG"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
   file: "logs/development.log"
+  max_size: "100MB"
+  backup_count: 5
+  
+  # Structured Logging
+  structured: true
+  include_traceback: true
+
+# Performance Configuration
+performance:
+  cache_ttl: 3600  # 1 hour
+  request_timeout: 30
+  max_concurrent_requests: 100
+  database_timeout: 10
+  
+  # Memory Management
+  max_memory_usage: "2GB"
+  garbage_collection_threshold: 0.8
+
+# Feature Flags
+features:
+  enable_advanced_ai: true
+  enable_market_analysis: true
+  enable_competitor_intelligence: true
+  enable_interview_simulation: true
+  enable_realtime_notifications: true
+  
+  # Experimental Features
+  experimental:
+    enable_deep_agents: true
+    enable_strategic_intelligence: true
+    enable_synthetic_data_generation: false
+
+# Monitoring and Analytics
+monitoring:
+  enable_metrics: true
+  enable_tracing: true
+  enable_health_checks: true
+  
+  # External Monitoring
+  datadog:
+    api_key: "${DATADOG_API_KEY}"
+    enabled: false
+  sentry:
+    dsn: "${SENTRY_DSN}"
+    enabled: true
+
+# External Services
+external_services:
+  email:
+    provider: "sendgrid"
+    api_key: "${SENDGRID_API_KEY}"
+    from_email: "noreply@jobapplicationai.com"
+  
+  storage:
+    provider: "aws_s3"
+    bucket: "job-application-ai-dev"
+    region: "us-east-1"
+  
+  queue:
+    provider: "redis"
+    default_queue: "default"
+    retry_queues: true
