@@ -1,0 +1,105 @@
+name: Model Training Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      model-type:
+        description: 'Model to train'
+        required: true
+        default: 'resume_analyzer'
+        type: choice
+        options:
+        - resume_analyzer
+        - job_matcher
+        - interview_simulator
+      dataset-version:
+        description: 'Dataset version'
+        required: true
+        default: 'v1.2.0'
+  schedule:
+    - cron: '0 0 * * 0' # Weekly training
+
+env:
+  MODEL_CACHE: ${{ github.workspace }}/.model-cache
+
+jobs:
+  prepare-data:
+    runs-on: ubuntu-latest
+    outputs:
+      dataset-path: ${{ steps.prepare.outputs.dataset-path }}
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Download training data
+      uses: actions/download-artifact@v4
+      with:
+        name: job-dataset
+        path: ./data/training
+    
+    - name: Preprocess data
+      id: prepare
+      run: |
+        python scripts/preprocess_data.py \
+          --input ./data/training \
+          --output ./data/processed \
+          --config config/training_config.yaml
+        echo "dataset-path=./data/processed" >> $GITHUB_OUTPUT
+
+  train-model:
+    needs: prepare-data
+    runs-on: [ubuntu-latest, gpu]
+    strategy:
+      matrix:
+        model: ['resume_analyzer', 'job_matcher']
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements-training.txt
+        pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+    
+    - name: Train model
+      run: |
+        python models/training_scripts/train_${{ matrix.model }}.py \
+          --data_path ${{ needs.prepare-data.outputs.dataset-path }} \
+          --config config/model_configs/${{ matrix.model }}_config.json \
+          --output_dir ./models/trained_models/${{ matrix.model }}_${{ github.sha }}
+    
+    - name: Evaluate model
+      run: |
+        python scripts/evaluate_model.py \
+          --model_path ./models/trained_models/${{ matrix.model }}_${{ github.sha }} \
+          --test_data ${{ needs.prepare-data.outputs.dataset-path }}/test
+    
+    - name: Upload model artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.model }}-model-${{ github.sha }}
+        path: ./models/trained_models/${{ matrix.model }}_${{ github.sha }}
+        retention-days: 30
+
+  deploy-model:
+    needs: train-model
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Download model artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: ./models/trained_models
+    
+    - name: Deploy to model registry
+      run: |
+        python scripts/deploy_model.py \
+          --model_dir ./models/trained_models \
+          --environment production \
+          --version ${{ github.sha }}
