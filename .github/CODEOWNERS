@@ -1,0 +1,30 @@
+# Core team ownership
+* @project-leads
+
+# AI Models and ML components
+/models/ @ml-engineers
+/src/ai_agents/ @ai-engineers
+/src/deep_agents/ @ai-engineers @ml-engineers
+
+# Strategic intelligence
+/src/strategic_intelligence/ @data-scientists @ai-engineers
+
+# Security components
+/src/helpers/security.py @security-team
+/config/security.yaml @security-team
+/.github/security/ @security-team
+
+# Infrastructure and deployment
+/docker-compose.yml @devops
+/Dockerfile @devops
+/.github/workflows/ @devops
+
+# Documentation
+/docs/ @technical-writers
+/README.md @project-leads
+
+# Configuration
+/config/ @project-leads @devops
+
+# Tests
+/tests/ @qa-engineers @ai-engineers
