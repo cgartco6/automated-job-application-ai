@@ -1,0 +1,32 @@
+environment: development
+debug: true
+
+ai_models:
+  resume_analyzer:
+    model_path: "models/trained_models/resume_analyzer/"
+    confidence_threshold: 0.7
+  job_matcher:
+    model_path: "models/trained_models/job_matcher/"
+    similarity_threshold: 0.8
+
+apis:
+  linkedin:
+    base_url: "https://api.linkedin.com/v2"
+    rate_limit: 100
+  indeed:
+    base_url: "https://api.indeed.com"
+    rate_limit: 50
+
+database:
+  host: "localhost"
+  port: 5432
+  name: "job_application_dev"
+  user: "dev_user"
+
+security:
+  encryption_key: "dev_encryption_key_123"
+  ssl_required: false
+
+logging:
+  level: "DEBUG"
+  file: "logs/development.log"
