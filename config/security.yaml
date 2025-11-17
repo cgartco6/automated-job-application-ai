@@ -1,0 +1,172 @@
+# Security Configuration
+security:
+  # Encryption
+  encryption:
+    algorithm: "AES-256-GCM"
+    key_derivation: "pbkdf2_sha256"
+    iterations: 100000
+  
+  # JWT Configuration
+  jwt:
+    algorithm: "HS256"
+    expiration: 3600  # 1 hour
+    refresh_expiration: 2592000  # 30 days
+    issuer: "job-application-ai"
+  
+  # API Security
+  api_security:
+    rate_limiting:
+      enabled: true
+      requests_per_minute: 100
+      requests_per_hour: 1000
+    request_signing:
+      enabled: true
+      algorithm: "HMAC-SHA256"
+    input_validation:
+      enabled: true
+      max_input_size: "10MB"
+  
+  # Data Protection
+  data_protection:
+    encryption_at_rest: true
+    encryption_in_transit: true
+    data_masking:
+      enabled: true
+      masked_fields:
+        - "email"
+        - "phone"
+        - "social_security"
+    data_anonymization:
+      enabled: true
+      anonymized_fields:
+        - "ip_address"
+        - "user_agent"
+  
+  # Authentication
+  authentication:
+    password_policy:
+      min_length: 12
+      require_uppercase: true
+      require_lowercase: true
+      require_numbers: true
+      require_special_chars: true
+      max_age_days: 90
+    mfa:
+      enabled: true
+      required_for_admin: true
+      backup_codes_count: 10
+  
+  # Authorization
+  authorization:
+    role_based_access:
+      enabled: true
+      roles:
+        - "user"
+        - "admin"
+        - "moderator"
+        - "analyst"
+    permission_model: "RBAC"
+  
+  # Network Security
+  network_security:
+    ssl_tls:
+      enabled: true
+      min_version: "TLSv1.2"
+      ciphers:
+        - "ECDHE-ECDSA-AES128-GCM-SHA256"
+        - "ECDHE-RSA-AES128-GCM-SHA256"
+    cors:
+      enabled: true
+      allowed_origins:
+        - "https://jobapplicationai.com"
+        - "https://www.jobapplicationai.com"
+      allowed_methods:
+        - "GET"
+        - "POST"
+        - "PUT"
+        - "DELETE"
+        - "OPTIONS"
+  
+  # Security Headers
+  security_headers:
+    enabled: true
+    headers:
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      "X-Content-Type-Options": "nosniff"
+      "X-Frame-Options": "DENY"
+      "X-XSS-Protection": "1; mode=block"
+      "Content-Security-Policy": "default-src 'self'"
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+  
+  # Vulnerability Management
+  vulnerability_management:
+    dependency_scanning:
+      enabled: true
+      schedule: "daily"
+      fail_on_critical: true
+    code_scanning:
+      enabled: true
+      tools:
+        - "codeql"
+        - "snyk"
+    penetration_testing:
+      enabled: true
+      schedule: "quarterly"
+  
+  # Incident Response
+  incident_response:
+    enabled: true
+    contact_email: "security@jobapplicationai.com"
+    response_time: "24 hours"
+    notification_protocols:
+      - "email"
+      - "slack"
+  
+  # Compliance
+  compliance:
+    gdpr:
+      enabled: true
+      data_processing_agreement: true
+      data_protection_officer: "dpo@jobapplicationai.com"
+    ccpa:
+      enabled: true
+    hipaa:
+      enabled: false
+  
+  # Audit Logging
+  audit_logging:
+    enabled: true
+    events:
+      - "user_login"
+      - "user_logout"
+      - "password_change"
+      - "role_change"
+      - "data_access"
+      - "configuration_change"
+    retention_period: "7 years"
+  
+  # API Keys Management
+  api_keys:
+    rotation:
+      enabled: true
+      interval_days: 90
+    storage:
+      encrypted: true
+      key_vault: "aws_secrets_manager"
+  
+  # Security Monitoring
+  security_monitoring:
+    siem:
+      enabled: true
+      provider: "splunk"
+    threat_intelligence:
+      enabled: true
+      feeds:
+        - "alienvault"
+        - "fireeye"
+    anomaly_detection:
+      enabled: true
+      models:
+        - "login_anomaly"
+        - "access_pattern"
+        - "data_exfiltration"
